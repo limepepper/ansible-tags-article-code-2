@@ -1,0 +1,8 @@
+---
+
+- name:
+  debug:
+    msg: debug in playbook-3-tasks-1
+
+- include_tasks: "playbook-3-tasks-2.yml"
+  tags: always

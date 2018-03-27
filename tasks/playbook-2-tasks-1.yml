@@ -1,0 +1,8 @@
+---
+
+- name:
+  debug:
+    msg: debug in playbook-2-tasks-1
+
+- include_tasks: "playbook-2-tasks-2.yml"
+  tags: run-me

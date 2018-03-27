@@ -1,0 +1,29 @@
+---
+
+- name:
+  debug:
+    msg: debug in playbook-4-tasks-2
+
+- tags: run-me
+  block:
+
+  - name: "this task is tagged as 'run-me' for {{ site_to_process }}"
+    template:
+      src: template-in.j2
+      dest: "/tmp/a_playbook-5-tasks-2-tagged-run-me.txt"
+
+  - name: "this task is tagged as 'run-me' for {{ site_to_process }}"
+    template:
+      src: template-in.j2
+      dest: "/tmp/a_playbook-5-tasks-2-2-tagged-run-me.txt"
+
+- name: this tasks is tagged as 'dont-run-me'
+  template:
+    src: template-in.j2
+    dest: "/tmp/a_playbook-5-tasks-2-tagged-dont-run-me.txt"
+  tags: dont-run-me
+
+- name: this tasks is not tagged
+  template:
+    src: template-in.j2
+    dest: "/tmp/a_playbook-5-tasks-2-not-tagged.txt"

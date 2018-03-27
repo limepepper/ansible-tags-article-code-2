@@ -1,0 +1,22 @@
+---
+
+- name:
+  debug:
+    msg: debug in playbook-1-tasks-2
+
+- name: "this task is tagged as 'run-me'"
+  template:
+    src: template-in.j2
+    dest: "/tmp/a_playbook-1-tasks2-tagged-run-me.txt"
+  tags: run-me
+
+- name: this tasks is tagged as 'dont-run-me'
+  template:
+    src: template-in.j2
+    dest: "/tmp/a_playbook-1-tasks2-tagged-dont-run-me.txt"
+  tags: dont-run-me
+
+- name: this tasks is not tagged
+  template:
+    src: template-in.j2
+    dest: "/tmp/a_playbook-1-tasks2-not-tagged.txt"

@@ -1,0 +1,20 @@
+---
+
+- name: Converge
+  hosts: all
+
+  tasks:
+
+    - name: print out the information about this playbook-4
+      debug:
+        msg: |
+          This playbook uses include_role to dynamically include a role
+          it also uses tasks_from to pick a specific tasks file.
+          The tasks in the tasks file are a mix of tagged, untagged
+          The include_role statement is tagged with run-me
+
+    - name: "include_role: ansible-tags-article-code-2"
+      include_role:
+        name: ansible-tags-article-code-2
+        tasks_from: playbook-4-tasks-1.yml
+      tags: always

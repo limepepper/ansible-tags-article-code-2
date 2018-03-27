@@ -1,0 +1,16 @@
+---
+
+- name: Converge
+  hosts: all
+
+  tasks:
+    - name: use include_role to dynamic import the main role
+      include_role:
+        name: ansible-tags-article-code-2
+
+    - name: flag that playbook ran
+      copy:
+        content: |
+          some content
+        dest: "/tmp/a_playbook-playbook-ran.txt"
+      tags: always

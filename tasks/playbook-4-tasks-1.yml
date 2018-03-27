@@ -1,0 +1,14 @@
+---
+
+- name:
+  debug:
+    msg: debug in playbook-4-tasks-1
+
+- include_tasks: "playbook-4-tasks-2.yml"
+  vars:
+    site_to_process: "{{ item }}"
+  with_items:
+    - site: www.mywordpresssite-01.com
+    - site: www.mywordpresssite-02.com
+    - site: www.mywordpresssite-03.com
+  tags: always
